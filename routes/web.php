@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\Auth\AuthController;
+use App\Http\Controllers\Admin\BlogController;
+use App\Http\Controllers\Admin\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +18,19 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('welcome');
+
+
+
+Route::get('/login', [AuthController::class, 'loginPage'])->name('login'); 
+Route::post('/login', [AuthController::class, 'login'])->name('login.submit'); 
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::middleware(['admin'])->group(function () {
+    Route::resource('blog', BlogController::class);
 });
+
+Route::resource('register', RegisterController::class);
+
+
