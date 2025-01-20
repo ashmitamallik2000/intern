@@ -33,4 +33,3 @@ Route::middleware(['admin'])->group(function () {
 
 Route::resource('register', RegisterController::class);
 
-

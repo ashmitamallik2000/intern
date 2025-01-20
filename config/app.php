@@ -185,4 +185,10 @@ return [
         // 'Example' => App\Facades\Example::class,
     ])->toArray(),
 
+    'aliases' => [
+    // Other aliases...
+    'Hash' => Illuminate\Support\Facades\Hash::class,
+    'Route' => Illuminate\Support\Facades\Route::class,
+    ],
+
 ];
