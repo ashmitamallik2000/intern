@@ -11,10 +11,12 @@ no<?php
 |
 */
 
+use App\Models\User;
+
 uses(
     Tests\TestCase::class,
-    // Illuminate\Foundation\Testing\RefreshDatabase::class,
-)->in('Feature');
+    Illuminate\Foundation\Testing\LazilyRefreshDatabase::class,
+)->in('Feature','Unit');
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +44,7 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function createUser()
 {
-    // ..
+    return User::factory()->create();
 }
